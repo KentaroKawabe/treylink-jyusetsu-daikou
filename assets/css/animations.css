@@ -1,0 +1,284 @@
+/* アニメーション共通スタイル */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ローディング画面 */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0066cc, #0099ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.loading-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-text {
+    position: absolute;
+    bottom: 20%;
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: 0;
+}
+
+/* 書類フローアニメーション（ローディング用に修正） */
+.document-flow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.scattered-documents {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.document {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transform: rotate(0deg);
+    opacity: 0;
+}
+
+.doc1 {
+    width: 120px;
+    height: 160px;
+    top: 20%;
+    left: 15%;
+}
+
+.doc2 {
+    width: 100px;
+    height: 140px;
+    top: 30%;
+    right: 20%;
+}
+
+.doc3 {
+    width: 130px;
+    height: 180px;
+    bottom: 25%;
+    left: 25%;
+}
+
+.doc4 {
+    width: 110px;
+    height: 150px;
+    top: 15%;
+    right: 30%;
+}
+
+.doc5 {
+    width: 90px;
+    height: 130px;
+    bottom: 35%;
+    right: 15%;
+}
+
+.organized-document {
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    z-index: 2;
+}
+
+.organized-document:after {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    right: 15px;
+    height: 10px;
+    background-color: #0066cc;
+    border-radius: 2px;
+}
+
+.organized-document:before {
+    content: "";
+    position: absolute;
+    top: 45px;
+    left: 15px;
+    right: 15px;
+    bottom: 25px;
+    background-color: #f5f5f5;
+    border-radius: 2px;
+}
+
+/* タイピングテキストアニメーション（速度を上げる） */
+.typing-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+.typing-text.typing {
+    animation: typing 1.2s steps(30, end) forwards;
+}
+
+.second-line {
+    animation-delay: 1.3s;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* キーベネフィットアニメーション */
+.key-benefits {
+    margin: 20px 0;
+}
+
+.benefit-item {
+    display: inline-block;
+    margin-right: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* パラレックス背景効果 */
+.parallax-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150%;
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(0, 153, 255, 0.1) 100%);
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yMCAyMGgyMHYyMEgyMFYyMHptMCAwSDBoMjB2MjBIMFYwaDIwdjIwem0yMCAwaDIwdjIwSDQwVjIwem0wLTIwaDIwdjIwSDQwVjB6IiBzdHJva2U9InJnYmEoMCwgMTAyLCAyMDQsIDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvZz48L3N2Zz4=');
+    transform: translateY(0);
+    z-index: 0;
+}
+
+/* 問題吹き出しの連鎖表示 */
+.bubble-sequence {
+    transform: scale(0.8) translateY(20px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.bubble-sequence.active {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* 数値のカウントアップアニメーション */
+.stat-number {
+    position: relative;
+}
+
+.stat-number:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 0;
+    background-color: #0066cc;
+    transition: width 2s ease;
+}
+
+.stat-number.counting:after {
+    width: 50px;
+}
+
+/* 新しいアニメーション効果 */
+/* フェードスライドイン（右から） */
+.fade-slide-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.8s ease-out;
+}
+
+.fade-slide-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* フェードスライドイン（左から） */
+.fade-slide-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.8s ease-out;
+}
+
+.fade-slide-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ズームイン効果 */
+.zoom-in {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s ease-out;
+}
+
+.zoom-in.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* パルスアニメーション */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(0, 102, 204, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 102, 204, 0);
+    }
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+} 
